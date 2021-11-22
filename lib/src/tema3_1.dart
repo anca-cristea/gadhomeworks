@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-//import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,7 +26,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //AudioCache _audioCache = AudioCache();
+  AudioCache _audioCache = AudioCache();
 
   List<LanguageBox> languageBox = <LanguageBox>[
     LanguageBox('Hello', 'hello_en_gb_1.mp3'),
@@ -72,8 +72,8 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 22,
                   ),
                 ),
-                onTap: () {
-                  //_audioCache.play(languageBox[index].audio);
+                onTap: () async {
+                  await _audioCache.play('audio/${languageBox[index].audio}');
                 },
               ),
             ),
