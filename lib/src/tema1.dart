@@ -48,8 +48,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: TextField(
               controller: controller,
-              keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
               decoration: InputDecoration(
                 labelText: 'Suma de conversie in RON',
                 hintText: 'valoarea',
@@ -70,9 +69,11 @@ class _HomePageState extends State<HomePage> {
                 hint: const Text('Alege valuta'),
                 value: convers,
                 onChanged: (double? value) {
-                  setState(() {
-                    convers = value!;
-                  });
+                  setState(
+                    () {
+                      convers = value!;
+                    },
+                  );
                 },
                 items: const <DropdownMenuItem<double>>[
                   DropdownMenuItem<double>(
@@ -91,15 +92,17 @@ class _HomePageState extends State<HomePage> {
               ),
               TextButton(
                 onPressed: () {
-                  setState(() {
-                    number = double.tryParse(controller.text);
-                    if (number == null) {
-                      errorText = 'Nu este numar';
-                    } else {
-                      number = number! * convers;
-                      errorText = null;
-                    }
-                  });
+                  setState(
+                    () {
+                      number = double.tryParse(controller.text);
+                      if (number == null) {
+                        errorText = 'Nu este numar';
+                      } else {
+                        number = number! * convers;
+                        errorText = null;
+                      }
+                    },
+                  );
                 },
                 child: const Text(
                   'Convert',

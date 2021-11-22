@@ -26,9 +26,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  AudioCache _audioCache = AudioCache();
+  AudioCache audioCache = AudioCache();
 
-  List<LanguageBox> languageBox = <LanguageBox>[
+  final List<LanguageBox> languageBox = <LanguageBox>[
     LanguageBox('Hello', 'hello_en_gb_1.mp3'),
     LanguageBox('Hello(france)', 'bonjour_fr_fr_1.mp3'),
     LanguageBox('My name is', 'audio_3.mp3'),
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 onTap: () async {
-                  await _audioCache.play('audio/${languageBox[index].audio}');
+                  await audioCache.play('audio/${languageBox[index].audio}');
                 },
               ),
             ),
